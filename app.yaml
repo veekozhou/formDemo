@@ -9,6 +9,15 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+#  a static file mapping
+- url: /start
+  static_files: form.html
+  upload: form.html
+
+# a static directory mapping
+- url: /css
+  static_dir: css
+  
 - url: .*
   script: main.app
 
