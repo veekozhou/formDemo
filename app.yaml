@@ -1,4 +1,4 @@
-application: iems5718
+application: iems5718-demo
 version: 1
 runtime: python27
 api_version: 1
