@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+    <head>
+        <title>Week 7 Form Demo</title>
+        <link href='/css/form.css' rel='stylesheet' type='text/css'></link>
+        <!-- include jquery and your js -->
+
+    </head>
+    <body>
+        <h1>Week 7 - A Simple Form</h1>        
+
+        <!-- 
+        
+        Part 1: Shows what is the current user and show a logout link 
+        
+        -->
+        <div id="header">
+            Welcome <b>{{ user.email() }}</b>.<a href="{{ logout_url | safe }}">Sign out</a>
+        </div>      
+        <br>
+        <!-- 
+        
+        Part 2
+        - Replace the following form with your HTML form created in Assignment 1. You might
+          need to insert other elements of your design elsewhere in this file
+        - By using App Engine template method introduced in Week 7, give user a filled-in form 
+          if there are already filled in data in previous sessions
+        - Instead of just serving a dialog, the "Save" button should use AJAX to 
+          submit the data to server, and server should send a success response
+        - Javascript should be in a separate .js file
+        
+        -->
+
+        <form id="target"  action="/submit/form" method="POST">            
+            name:<input name="name" type="text"><br><br>
+            age:<input name="age" type="number"><br><br>            
+            <input type="submit">
+        </form>
+        <br>        
+
+        {% if isAdmin  %}
+        <hr>
+        <br>
+        <div>Admin Only</div>
+        <!--        
+        
+        Part 3: BONUS section         
+        - Display a search box for admin to search records using email
+        - Use AJAX to request the data from server
+        - Use javascript to load the data to the form
+        - Finally, admin can modify the form data for that user and save it        
+        
+        -->       
+        {% endif %}      
+
+        <hr>
+        <div id="footer">Designed  by [insert your name & student Id here]</div>
+    </body>
+</html>
+
+{% endautoescape %}
